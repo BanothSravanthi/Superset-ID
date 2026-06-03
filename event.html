@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Form container */
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333333;
+            text-align: center;
+        }
+
+        /* Form groups */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555555;
+        }
+
+        /* Inputs, select, and textarea */
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Output message */
+        output {
+            display: block;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196f3;
+            color: #0c5460;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Event Registration</h2>
+    
+    <form id="registrationForm" onsubmit="handleSubmit(event)">
+        <!-- Name Field with Autofocus -->
+        <div class="form-group">
+            <label for="fullName">Full Name:</label>
+            <input 
+                type="text" 
+                id="fullName" 
+                placeholder="John Doe" 
+                required 
+                autofocus
+            >
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+            <label for="emailAddress">Email Address:</label>
+            <input 
+                type="email" 
+                id="emailAddress" 
+                placeholder="username@example.com" 
+                required
+            >
+        </div>
+
+        <!-- Date Field -->
+        <div class="form-group">
+            <label for="eventDate">Preferred Date:</label>
+            <input 
+                type="date" 
+                id="eventDate" 
+                required
+            >
+        </div>
+
+        <!-- Select Field -->
+        <div class="form-group">
+            <label for="eventType">Event Type:</label>
+            <select id="eventType" required>
+                <option value="" disabled selected>Choose an event type</option>
+                <option value="Community Meeting">Community Meeting</option>
+                <option value="Block Party">Block Party</option>
+                <option value="Volunteer Clean-up">Volunteer Clean-up</option>
+            </select>
+        </div>
+
+        <!-- Textarea Field -->
+        <div class="form-group">
+            <label for="specialNotes">Special Messages / Notes:</label>
+            <textarea 
+                id="specialNotes" 
+                placeholder="Type any special requests here..."
+            ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Register Now</button>
+        
+        <!-- Output Element for Confirmation -->
+        <output id="confirmationMessage" class="hidden" for="fullName eventType"></output>
+    </form>
+</div>
+
+<script>
+    function handleSubmit(event) {
+        // Prevent page reload
+        event.preventDefault(); 
+        
+        // Get values
+        const name = document.getElementById('fullName').value;
+        const eventType = document.getElementById('eventType').value;
+        const outputBox = document.getElementById('confirmationMessage');
+        
+        // Update <output> text
+        outputBox.value = `Thank you, ${name}! Your registration for the "${eventType}" has been successfully received.`;
+        
+        // Show the output box
+        outputBox.classList.remove('hidden');
+    }
+</script>
+
+</body>
+</html>

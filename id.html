@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Banner</title>
+    <style>
+        /* Target the banner by its unique ID */
+        #welcomeBanner {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            border-radius: 8px;
+        }
+
+        /* Target multiple elements using the class */
+        .highlight {
+            background-color: #fef08a;
+            color: #1e3a8a;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Block element for the main banner structure -->
+    <div id="welcomeBanner">
+        <h1>Welcome back, <span class="highlight">Alex</span>!</h1>
+        
+        <p>We are glad to see you online today.</p>
+        
+        <!-- Inline element with local styles and a shared class -->
+        <p>
+            <span style="color: #ef4444; font-weight: bold;">Special Offer:</span> 
+            Get <span class="highlight">50% off</span> your next purchase!
+        </p>
+    </div>
+
+</body>
+</html>
